@@ -17,6 +17,7 @@
 import Kitura
 import SwiftyJSON
 import LoggerAPI
+import Foundation
 import CloudFoundryEnv
 
 public class Controller {
@@ -41,20 +42,9 @@ public class Controller {
     // Serve static content from "public"
     router.all("/", middleware: StaticFileServer())
 
-    // Basic GET request
-    router.get("/hello", handler: getHello)
+    // API endpoint
+    router.get("/matchingArticle", handler: matchingArticle)
 
-    // Basic POST request
-    router.post("/hello", handler: postHello)
-
-    // JSON Get request
-    router.get("/json", handler: getJSON)
-  }
-
-  public func getHello(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
-    Log.debug("GET - /hello route handler...")
-    response.headers["Content-Type"] = "text/plain; charset=utf-8"
-    try response.status(.OK).send("Hello from Kitura-Starter!").end()
   }
 
   public func postHello(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
@@ -63,20 +53,57 @@ public class Controller {
     if let name = try request.readString() {
       try response.status(.OK).send("Hello \(name), from Kitura-Starter!").end()
     } else {
-      try response.status(.OK).send("Kitura-Starter received a POST request!").end()
+      try response.status(.OK).send(String(describing: request.queryParameters)).end()
     }
   }
 
-  public func getJSON(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
+  public func matchingArticle(request: RouterRequest, response: RouterResponse, next: @escaping () -> Void) throws {
     Log.debug("GET - /json route handler...")
     response.headers["Content-Type"] = "application/json; charset=utf-8"
+    
+    
     var jsonResponse = JSON([:])
-    jsonResponse["framework"].stringValue = "Kitura"
-    jsonResponse["applicationName"].stringValue = "Kitura-Starter"
-    jsonResponse["company"].stringValue = "IBM"
-    jsonResponse["organization"].stringValue = "Swift @ IBM"
-    jsonResponse["location"].stringValue = "Austin, Texas"
+    if let urlString = request.queryParameters["url"], let _ = NSURL(string: urlString) {
+      
+      let jsonArticle = self.article(url: "http://www.foxnews.com/politics/2016/11/12/clinton-tells-fundraisers-fbi-comey-letter-sank-presidential-bid.html",
+                                     title: "Clinton tells fundraisers FBI Comey letter sank presidential bid",
+                                     author: "Serafin Gomez",
+                                     sourceName: "FoxNews",
+                                     tone: "political, argessive",
+                                     summary: "summary")
+      
+      let jsonMatchingArticle1 = self.article(url: "http://www.breitbart.com/news/clinton-campaign-blames-james-comey-for-loss-to-donald-trump/",
+                                             title: "Clinton campaign blames James Comey for loss to Donald Trump",
+                                             author: "UPI",
+                                             sourceName: "Breitbart",
+                                             tone: "political, argessive",
+                                             summary: "summary")
+      
+      let jsonMatchingArticle2 = self.article(url: "http://www.huffingtonpost.com/entry/jim-comey-fbi-hillary-clinton_us_581b5051e4b01a82df652541",
+                                              title: "James Comey Adviser Blames Reporters For Blowing FBI Director’s Clinton Letter Out Of Proportion",
+                                              author: "Ryan J. Reilly",
+                                              sourceName: "The Huffington Post",
+                                              tone: "political, argessive",
+                                              summary: "summary")
+      
+      jsonResponse["article"] = jsonArticle
+      jsonResponse["matchingArticle1"] = jsonMatchingArticle1
+      jsonResponse["matchingArticle2"] = jsonMatchingArticle2
+    } else {
+      jsonResponse["error"].stringValue = "Incorrect URL"
+    }
     try response.status(.OK).send(json: jsonResponse).end()
+  }
+  
+  public func article(url: String, title: String, author: String, sourceName: String, tone: String, summary: String) -> JSON {
+    var jsonArticle = JSON([:])
+    jsonArticle["url"].stringValue = url
+    jsonArticle["articleTitle"].stringValue = title
+    jsonArticle["author"].stringValue = author
+    jsonArticle["sourceName"].stringValue = sourceName
+    jsonArticle["articleTone"].stringValue = tone
+    jsonArticle["summary"].stringValue = summary
+    return jsonArticle
   }
 
 }
