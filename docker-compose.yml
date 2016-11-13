@@ -1,0 +1,7 @@
+app:
+  image: ibmcom/swift-ubuntu
+  ports:
+    - "8090:8090"
+  volumes:
+    - .:/root/bubbbreak
+  command: bash -c "make clean -C bubbbreak && make -C bubbbreak && bubbbreak/.build/debug/bubbbreak"

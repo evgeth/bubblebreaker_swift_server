@@ -1,0 +1,5 @@
+module CHTTPParser {
+    umbrella "/Users/dpfbop/hackathons/bubbbreak/Packages/CHTTPParser-0.3.0/Sources/CHTTPParser/include"
+    link "CHTTPParser"
+    export *
+}

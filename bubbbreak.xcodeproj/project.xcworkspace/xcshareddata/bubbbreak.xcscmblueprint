@@ -1,0 +1,51 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "579E11B1AA6E028D92F7E19319069A45F1E758C9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "40635794C1929E96A4709153927459486D34FA7B" : 9223372036854775807,
+    "B48A9580752F9C43885C949B19DDA563AC9BB228" : 9223372036854775807,
+    "43425688648679ECEC3105C3812E3C82D04FD563" : 9223372036854775807,
+    "85E996FB125657C20E42A299A76F925867A7A6E4" : 9223372036854775807,
+    "579E11B1AA6E028D92F7E19319069A45F1E758C9" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "906291D2-BD8E-4402-85BC-F2A2EF5FF572",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "40635794C1929E96A4709153927459486D34FA7B" : "bubbbreak\/Packages\/Kitura-net-1.0.2\/",
+    "B48A9580752F9C43885C949B19DDA563AC9BB228" : "bubbbreak\/Packages\/CHTTPParser-0.3.0\/",
+    "43425688648679ECEC3105C3812E3C82D04FD563" : "bubbbreak\/Packages\/Kitura-1.0.1\/",
+    "85E996FB125657C20E42A299A76F925867A7A6E4" : "bubbbreak\/Packages\/LoggerAPI-1.0.0\/",
+    "579E11B1AA6E028D92F7E19319069A45F1E758C9" : "bubbbreak\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "bubbbreak",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "bubbbreak.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/Kitura-net.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40635794C1929E96A4709153927459486D34FA7B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/Kitura.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "43425688648679ECEC3105C3812E3C82D04FD563"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Bluemix\/Kitura-Starter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "579E11B1AA6E028D92F7E19319069A45F1E758C9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/LoggerAPI.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "85E996FB125657C20E42A299A76F925867A7A6E4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IBM-Swift\/CHTTPParser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B48A9580752F9C43885C949B19DDA563AC9BB228"
+    }
+  ]
+}
